@@ -1,0 +1,10 @@
+<div class="card-container">
+  <div class="card" *ngFor="let book of filteredBooks">
+    <div class="card-content">
+      <img [src]="book.image_url" alt="{{book.title}}" *ngIf="book.image_url" class="card-image">
+      <h2 class="card-title">{{ book.title }}</h2>
+      <p class="card-subtitle">Fecha de publicacion: {{ book.publication_date }}</p>
+      <p class="card-subtitle">Autor: {{ book.author?.name }}</p>
+    </div>
+  </div>
+</div>

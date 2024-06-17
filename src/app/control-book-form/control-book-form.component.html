@@ -1,0 +1,24 @@
+<div class="form-container">
+  <h2>{{ book.id ? 'Edit Book' : 'Añadir Libros' }}</h2>
+  <form (ngSubmit)="saveBook()">
+    <div class="form-group">
+      <label for="title">Titulo</label>
+      <input type="text" id="title" [(ngModel)]="book.title" name="title" required>
+    </div>
+    <div class="form-group">
+      <label for="publication_date">Fecha de publicacion</label>
+      <input type="date" id="publication_date" [(ngModel)]="book.publication_date" name="publication_date" required>
+    </div>
+    <div class="form-group">
+      <label for="author">Autor</label>
+      <select id="author" [(ngModel)]="book.author_id" name="author" required>
+        <option *ngFor="let author of authors" [value]="author.id">{{ author.name }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="image_url">Url de la imagen</label>
+      <input type="url" id="image_url" [(ngModel)]="book.image_url" name="image_url">
+    </div>
+    <button type="submit">{{ book.id ? 'Update' : 'Guardar' }}</button>
+  </form>
+</div>

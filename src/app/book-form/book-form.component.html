@@ -1,0 +1,15 @@
+<form (ngSubmit)="addBook()">
+    <label for="title">Titulo:</label>
+    <input type="text" id="title" [(ngModel)]="book.title" name="title" required>
+    <br>
+    <label for="publication_date">Fecha de publicacion:</label>
+    <input type="date" id="publication_date" [(ngModel)]="book.publication_date" name="publication_date" required>
+    <br>
+    <label for="author">Autor:</label>
+    <select id="author" [(ngModel)]="book.author" name="author" required>
+      <option *ngFor="let author of authors" [ngValue]="author.id">{{ author.name }}</option>
+    </select>
+    <br>
+    <button type="submit">Añadir Libro</button>
+  </form>
+  

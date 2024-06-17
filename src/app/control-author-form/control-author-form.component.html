@@ -1,0 +1,18 @@
+<div class="form-container">
+  <h2>{{ author.id ? 'Edit Author' : 'Añadir Autor' }}</h2>
+  <form (ngSubmit)="saveAuthor()">
+    <div class="form-group">
+      <label for="name">Nombre</label>
+      <input type="text" id="name" [(ngModel)]="author.name" name="name" required>
+    </div>
+    <div class="form-group">
+      <label for="birth_date">Fecha de Nacimiento</label>
+      <input type="date" id="birth_date" [(ngModel)]="author.birth_date" name="birth_date" required>
+    </div>
+    <div class="form-group">
+      <label for="image_url">Url de la Imagen</label>
+      <input type="text" id="image_url" [(ngModel)]="author.image_url" name="image_url">
+    </div>
+    <button type="submit">{{ author.id ? 'Update' : 'Guardar' }}</button>
+  </form>
+</div>

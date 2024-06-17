@@ -1,13 +1,23 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'],
+  standalone: true,
+  imports: [RouterModule, FormsModule, CommonModule]
 })
 export class AppComponent {
-  title = 'biblioteca_front';
+  title = 'biblioteca-front';
+  searchQuery: string = '';
+
+  constructor(private router: Router) {}
+
+  applyFilter(): void {
+    const currentUrl = this.router.url.split('?')[0];
+    this.router.navigate([currentUrl], { queryParams: { searchQuery: this.searchQuery } });
+  }
 }
